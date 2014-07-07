@@ -1,10 +1,7 @@
 # testProject
-### a Sails application
+### Getting Started with Sails on OSX
 
-Sails.js has a wonderful video intro
-https://www.youtube.com/watch?v=GK-tFvpIR7c
-
-but the syntax is different for the 0.9 release.  Updated steps below.
+Sails.js has a wonderful [video intro](https://www.youtube.com/watch?v=GK-tFvpIR7c) but the syntax is different for the 0.9 release.  Updated steps below.
 
 ```
 brew install node
