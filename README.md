@@ -159,6 +159,48 @@ Object {model: "user", verb: "create", data: Object, id: 5}
 
 expand the object to see the data for that object is available
 
+## Lock it down
+
+in config/policies.js
+```
+module.exports.policies = {
+
+  // Default policy for all controllers and actions
+  // (`true` allows public access) 
+  '*': true
+```
+indicates that anyone can ask the server for anything
+
+we'll change what is accessible on the user model
+```
+module.exports.policies = {
+
+  // Default policy for all controllers and actions
+  // (`true` allows public access) 
+  '*': true,
+
+  'user': {
+    '*': 'authenticated',
+    'findAll': true,
+    'find':true
+  }
+```
+
+This refers to an 'isAuthenticated' policy that is defined already in api/policies/isAuthenticated.js  (this is actually just express middleware)
+
+then if you go to http://localhost:1337/user that works
+
+but if you try to create a user:
+```
+http://localhost:1337/user/create?name=Mary
+```
+you get a 403 forbidden
+
+
+
+
+
+
 
 
 
