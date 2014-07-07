@@ -38,6 +38,7 @@ npm-debug.log
 nbproject
 .idea
 .*.swp
+.*.swo
 
 
 ########################
