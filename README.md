@@ -5,7 +5,7 @@
 ```
 brew install node
 npm -g sails
-sails new testProject
+sails new testProject --linker
 cd testProject
 sails lift
 ```
@@ -225,18 +225,5 @@ module.exports.adapters = {
   },
 
 
-```
-
-## linker
-
-sails new testProject --linker
-
-or move from old version
-
-```
-cd assets
-mkdir linker
-mv js linker/.
-mv styles linker/.
 ```
 
