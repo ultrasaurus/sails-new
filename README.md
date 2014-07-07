@@ -1,6 +1,10 @@
 # testProject
 ### a Sails application
 
+Sails.js has a wonderful video intro
+https://www.youtube.com/watch?v=GK-tFvpIR7c
+
+but the syntax is different for the 0.9 release.  Updated steps below.
 
 ```
 brew install node
