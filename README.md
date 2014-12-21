@@ -5,7 +5,7 @@ Sails.js has a wonderful [video intro](https://www.youtube.com/watch?v=GK-tFvpIR
 
 ```
 brew install node
-npm -g sails
+npm install sails -g
 sails new testProject --linker
 cd testProject
 sails lift
@@ -26,7 +26,7 @@ http://localhost:1337/user/create?name=Lee
 http://localhost:1337/user/create?name=Maggie
 ```
 
-creates users 
+creates users
 in browser, go to: http://localhost:1337/user/
 ```
 [
@@ -70,7 +70,7 @@ http://localhost:1337/user/update/1?email=tim@whatever.com
 
 ```
 
-using POST 
+using POST
 
 ```
 curl -X POST -d "{}" -H "Content-Type: application/jon" http://localhost:1337/user/find
@@ -111,7 +111,7 @@ other options
 {
   "where": {
   	"name": {
-    	"contains":"e"	
+    	"contains":"e"
     }
   }
 }
@@ -120,7 +120,7 @@ other options
 {
   "where": {
   	"name": {
-    	"startsWith":"L"	
+    	"startsWith":"L"
     }
   }
 }
@@ -133,8 +133,8 @@ Open Javascript console in the browser, and you will see
 ```
 Connecting to Sails.js... app.js:60
 Socket is now connected and globally accessible as `socket`.
-e.g. to send a GET request to Sails, try 
-`socket.get("/", function (response) { console.log(response); })` 
+e.g. to send a GET request to Sails, try
+`socket.get("/", function (response) { console.log(response); })`
 ```
 Take a look at assets/linker/js/app.js where you will see the code that creates that output
 
@@ -154,7 +154,7 @@ http://localhost:1337/user/create?name=Fred
 
 then see this
 ```
-New comet message received ::  
+New comet message received ::
 Object {model: "user", verb: "create", data: Object, id: 5}
 ```
 
@@ -167,7 +167,7 @@ in config/policies.js
 module.exports.policies = {
 
   // Default policy for all controllers and actions
-  // (`true` allows public access) 
+  // (`true` allows public access)
   '*': true
 ```
 indicates that anyone can ask the server for anything
@@ -177,7 +177,7 @@ we'll change what is accessible on the user model
 module.exports.policies = {
 
   // Default policy for all controllers and actions
-  // (`true` allows public access) 
+  // (`true` allows public access)
   '*': true,
 
   'user': {
@@ -215,7 +215,7 @@ By default, Sails uses simple disk storage for development only.  You can see th
 ```
 module.exports.adapters = {
 
-  // If you leave the adapter config unspecified 
+  // If you leave the adapter config unspecified
   // in a model definition, 'default' will be used.
   'default': 'disk',
 
