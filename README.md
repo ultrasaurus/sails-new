@@ -31,13 +31,9 @@ You will see the sails app is running with some references to what to do next:
 
 For development we'll let Sails automatically rebuild the tables/collections/etc. in our schema.
 
-in ```sails config/model.js``` uncomment this line:
-```
-  migrate: 'alter'
-```
-In production, we would want this to be 'safe'
+in ```sails config/model.js``` the migrate configuration is 'alter' by default, which is perfect for testing.  Later, in production, we'll likely want to switch that to 'safe.'
 
-We'll use the sails generator to create an API, which consists of a model and a contoller:
+We'll use the sails generator to create an API, which consists of a model and a controller:
 
 
 ```
@@ -189,12 +185,17 @@ io.socket.get('/user', {}, function (users) {console.log(users)})
 ```
 and you will see your list of users
 
-sails maps the socket io requests to express requests automatically
 
+Let's listen for changes to any user model:
+```
+   io.socket.on('user', function messageReceived(event) {
+    console.log('New comet message received :: ', event);
+    });
+```
 
 in another browser window:
 ```
-http://localhost:1337/user/create?name=Fred
+http://localhost:1337/user/create?name=Eva
 ```
 
 then see this
@@ -226,13 +227,13 @@ module.exports.policies = {
   '*': true,
 
   'user': {
-    '*': 'authenticated',
-    'findAll': true,
+    '*': 'sessionAuth',
+    'findOne': true,
     'find':true
   }
 ```
 
-This refers to an 'isAuthenticated' policy that is defined already in api/policies/isAuthenticated.js  (this is actually just express middleware)
+This refers to an 'sessionAuth' policy that is defined already in api/policies/sessionAuth.js  (this is actually just express middleware)
 
 then if you go to http://localhost:1337/user that works
 
@@ -272,4 +273,3 @@ module.exports.adapters = {
 
 
 ```
-
