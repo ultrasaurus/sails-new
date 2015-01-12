@@ -82,7 +82,8 @@ in browser, go to: http://localhost:1337/user/
     "updatedAt": "2014-12-21T18:20:32.879Z",
     "id": 4
   }
-]```
+]
+```
 
 We can create attributes, like this
 http://localhost:1337/user/update/1?email=tim@whatever.com
